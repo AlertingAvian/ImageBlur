@@ -14,8 +14,9 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 
 import PIL.Image
+import time
 
-image = PIL.Image.open(r'C:\Users\maloneypatrick08\Pictures\pexels-photo-414612.png')
+image = PIL.Image.open(r'C:\Users\maloneypatrick08\Pictures\the-most-famous-windows-wallpaper-ever-turns-20-505668-2.jpg')
 x_size = int(image.size[0]/2)
 y_size = int(image.size[1]/2)
 
@@ -38,4 +39,5 @@ for x in range(blurred_img.size[0]):
                 
                 
 blurred_img.show()
+blurred_img.save(str(time.time()) + '.jpg')
         
