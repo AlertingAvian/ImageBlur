@@ -15,22 +15,27 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import PIL.Image
 
-image = PIL.Image.open(r'C:\Users\maloneypatrick08\Pictures\fjords.jpg')
-x_size = int(image.size[0] / 2)
-y_size = int(image.size[1] / 2)
+image = PIL.Image.open(r'C:\Users\maloneypatrick08\Pictures\pexels-photo-414612.png')
+x_size = int(image.size[0]/2)
+y_size = int(image.size[1]/2)
 
 
 blurred_img = PIL.Image.new('RGB',(x_size, y_size))
-new_x = 0
-new_y = 0
-print(image[0,0])
+print(image.size)
+print(blurred_img.size)
+list = []
 for x in range(image.size[0]):
     for y in range(image.size[1]):
         if x % 2 == 0 and y % 2 == 0:
-                #red, green, blue = image[x,y]
-                #blurred_img[new_x,new_y] = red, green, blue
-                new_x += 2
-                new_y += 2
+            r,g,b = image.getpixel((x,y))
+            list.append((r,g,b))
+        
+step = 0
+for x in range(blurred_img.size[0]):
+    for y in range(blurred_img.size[1]):
+                blurred_img.putpixel((x,y), list[step])
+                step += 1
+                
                 
 blurred_img.show()
         
