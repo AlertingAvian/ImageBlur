@@ -16,10 +16,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 import PIL.Image
 import time
 
-image = PIL.Image.open(r'C:\Users\maloneypatrick08\Pictures\the-most-famous-windows-wallpaper-ever-turns-20-505668-2.jpg')
+image = PIL.Image.open(r'C:\Users\maloneypatrick08\Pictures\boat.png__487x357_q85_crop_subsampling-2_upscale.png')
 x_size = int(image.size[0]/2)
 y_size = int(image.size[1]/2)
 
+if image.size[0] % 2 != 0 or image.size[1] % 2 != 0:
+    x_size += 1
+    y_size += 1
 
 blurred_img = PIL.Image.new('RGB',(x_size, y_size))
 print(image.size)
@@ -28,7 +31,7 @@ list = []
 for x in range(image.size[0]):
     for y in range(image.size[1]):
         if x % 2 == 0 and y % 2 == 0:
-            r,g,b = image.getpixel((x,y))
+            r,g,b,a = image.getpixel((x,y))
             list.append((r,g,b))
         
 step = 0
