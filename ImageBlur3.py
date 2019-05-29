@@ -23,7 +23,7 @@ image = PIL.Image.open(r'C:\Users\maloneypatrick08\Pictures\pexels-photo-414612.
 
 def onclick(event):
     global x,y
-    size = 128
+    size = 96
     try:
         x,y = (int(round(event.xdata)), int(round(event.ydata)))
         print(x,y)
@@ -34,9 +34,9 @@ def onclick(event):
         string = str(r) + ', ' + str(g) + ', ' + str(b)
         drw = PIL.ImageDraw.Draw(new)
         if (r+b+g)/3 > 120:
-            drw.text((0,0),string,fill=(0,0,0))
+            drw.text((5,5),string,fill=(0,0,0))
         else:
-            drw.text((0,0),string,fill=(255,255,255))
+            drw.text((5,5),string,fill=(255,255,255))
         new.show()
     except TypeError:
         print('Outside Plot')
