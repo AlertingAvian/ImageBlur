@@ -17,6 +17,9 @@ import PIL
 import PIL.ImageDraw
 import matplotlib.pyplot as plt
 
+from IPython import get_ipython
+get_ipython().run_line_magic('matplotlib', 'qt')
+
 x = None
 y = None
 image = PIL.Image.open(r'C:\Users\maloneypatrick08\Pictures\pexels-photo-414612.png')
